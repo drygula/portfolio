@@ -1,5 +1,6 @@
 $(window).on("load", function () {
     projectsSliderInit();
+    hobbiesInit();
     profileAnimationInit();
 });
 
@@ -14,6 +15,20 @@ function projectsSliderInit() {
             initSwiper();
         })
         .catch(error => console.error('Error loading projects:', error));
+}
+
+function hobbiesInit() {
+    const $wrapper = $('.js-hobbies-wrapper');
+    if (!$wrapper.length) return;
+
+    fetch('assets/data/hobbies.json')
+        .then(response => response.json())
+        .then(hobbies => {
+            console.log(hobbies);
+
+            renderHobbies(hobbies, $wrapper);
+        })
+        .catch(error => console.error('Error loading hobbies:', error));
 }
 
 function renderProjects(projects, $container) {
@@ -34,6 +49,22 @@ function renderProjects(projects, $container) {
                     </a>
                 </div>
             </article>
+        </div>
+    `).join('');
+
+    $container.html(html);
+}
+
+function renderHobbies(hobbies, $container) {
+    const html = hobbies.map(hobby => `
+        <div class="hobby-card">
+            <div class="hobby-card__icon">
+                ${hobby.icon}
+            </div>
+            <div class="hobby-card__body">
+                <h3 class="hobby-card__title">${hobby.title}</h3>
+                <p class="hobby-card__text">${hobby.desc}</p>
+            </div>
         </div>
     `).join('');
 
