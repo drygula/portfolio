@@ -2,7 +2,7 @@
   {
     "title": "ORC",
     "desc": "Сайт на WordPress для ізраїльської групи з управління нерухомістю.",
-    "img": "/assets/img/projects/orc.png",
+    "img": "./assets/img/projects/orc.png",
     "link": "https://orc.co.il/",
     "aria": "Детальніше про проєкт ORC",
     "tags": ["WordPress", "ACF", "Polylang", "CF7", "HTML", "SCSS", "JS"]
@@ -10,7 +10,7 @@
   {
     "title": "33 ОМБр",
     "desc": "Вебсайт на базі WordPress для бойової бригади з блогом, підпискою на донати та формою подачі заявки.",
-    "img": "/assets/img/projects/33-ombr.jpg",
+    "img": "./assets/img/projects/33-ombr.jpg",
     "link": "https://33ombr.mil.gov.ua/",
     "aria": "Детальніше про проєкт 33 ОМБр",
     "tags": ["WordPress", "ACF", "LiqPay API", "CF7", "WPML", "HTML", "SCSS", "JS"]
@@ -18,7 +18,7 @@
   {
     "title": "Ukraїner Store",
     "desc": "Інтернет магазин на WooCommerce з кастомним фільтром за термами таксономій.",
-    "img": "/assets/img/projects/ukrainer-store.png",
+    "img": "./assets/img/projects/ukrainer-store.png",
     "link": "https://store.ukrainer.net/",
     "aria": "Детальніше про проєкт Ukraїner Store",
     "tags": ["WordPress", "ACF", "WooCommerce", "Polylang", "HTML", "SCSS", "JS"]
@@ -26,7 +26,7 @@
   {
     "title": "Maman Aviation",
     "desc": "Вебсайт на базі WordPress для авіакомпанії з блогом, кількома кастомними типами записів та формою зворотнього зв'язку.",
-    "img": "/assets/img/projects/maman.png",
+    "img": "./assets/img/projects/maman.png",
     "link": "https://mamanaviation.co.il/",
     "aria": "Детальніше про проєкт Maman Aviation",
     "tags": ["WordPress", "ACF", "CF7", "HTML", "SCSS", "JS"]
@@ -34,7 +34,7 @@
   {
     "title": "Аратта",
     "desc": "WordPress сайт для спецпідрозділу ГУР з формою заявки.",
-    "img": "/assets/img/projects/aratta.png",
+    "img": "./assets/img/projects/aratta.png",
     "link": "https://aratta-gur.com/",
     "aria": "Детальніше про проєкт Аратта",
     "tags": ["WordPress", "ACF", "CF7", "HTML", "SCSS", "JS"]
@@ -42,7 +42,7 @@
   {
     "title": "Valery",
     "desc": "WordPress сайт для нумерологині з кількома кастомними типами записів, формами заявки та оплати.",
-    "img": "/assets/img/projects/no-karma.png",
+    "img": "./assets/img/projects/no-karma.png",
     "link": "https://no-karma.com/",
     "aria": "Детальніше про проєкт Valery",
     "tags": ["WordPress", "ACF", "Polylang", "CF7", "LiqPay API", "HTML", "SCSS", "JS"]
