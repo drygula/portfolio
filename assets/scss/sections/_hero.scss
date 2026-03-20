@@ -1,0 +1,217 @@
+@use "../inc/vars" as *;
+@use "../inc/mixins" as *;
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg);
+  background-image: 
+    radial-gradient(circle at 10% 90%, rgba(124, 58, 237, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(244, 63, 94, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+
+  & .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: minmax(0, auto) 1fr;
+    gap: 20px;
+
+    @media (max-width: ($sm - 1px)) {
+      height: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding-bottom: 0;
+      overflow: visible;
+    }
+  }
+
+  &__slider-wrap {
+    width: 100%;
+    z-index: 10;
+    isolation: isolate;
+    min-height: 0;
+    min-width: 0;
+
+    .swiper{
+      overflow: visible;
+    }
+  }
+
+  &__profile {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    width: 100%;
+    z-index: 5;
+    gap: 40px;
+    min-height: 0;
+    height: 100%;
+
+    @media (max-width: ($lg - 1px)) {
+      grid-template-columns: 3fr 5fr;
+    }
+    @media (max-width: ($md - 1px)) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: ($sm - 1px)) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.profile {
+  &__img {
+    flex-shrink: 0;
+    height: 50vh !important;
+    width: auto !important;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    @media (max-width: ($sm - 1px)) {
+      position: static;
+      height: auto !important;
+      order: 2;
+      width: calc(100% + 40px);
+      margin-inline: -20px;
+    }
+
+    img {
+      height: 100%; 
+      display: block; 
+      width: auto;
+      object-fit: contain;
+      object-position: center bottom;
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+      mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+    }
+  }
+
+  &__content {
+    background: rgba(15, 15, 35, 0.45);
+    backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    padding: 32px 40px;
+    border-radius: 32px;
+    grid-column: 2 / 3;
+    z-index: 10;
+    box-shadow: 
+      0 40px 80px rgba(0,0,0,0.5),
+      inset 0 0 40px rgba(124, 58, 237, 0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+
+    @media (max-width: ($sm - 1px)) {
+      grid-column: auto;
+      order: 1;
+      padding: 24px;
+    }
+  }
+
+  &__name {
+    font-family: var(--font-header);
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--text-main);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  &__role {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--accent);
+    margin: 8px 0;
+    font-weight: 500;
+  }
+
+  &__desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-alt);
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 20px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+      padding-bottom: 1px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      &:hover { 
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+    }
+  }
+}
+
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  
+  &-bullet {
+    width: 10px;
+    height: 10px;
+    background: var(--text-alt) !important;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    
+    &-active {
+      opacity: 1;
+      background: var(--primary) !important;
+      transform: scale(1.2);
+    }
+  }
+
+  &.swiper-pagination-lock {
+    display: none !important;
+  }
+}

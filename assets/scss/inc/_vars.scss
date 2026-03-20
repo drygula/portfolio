@@ -1,0 +1,36 @@
+// Breakpoints
+$lg: 1440px;
+$md: 1024px;
+$sm: 768px;
+
+:root {
+  // Colors (UI/UX Pro Max: Techno Vibrant)
+  --bg: #0f0f23;
+  --primary: #9f73e9;
+  --secondary: #f43f5e;
+  --accent: #0891b2;
+  
+  --text-main: #ffffff;
+  --text-alt: rgba(255, 255, 255, 0.7);
+  
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 16px;
+
+  // Fonts
+  --font-header: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  // Spacing (8px system)
+  --unit: 8px;
+  --container-max: 1440px;
+  --container-pad: 15px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  width: 100%;
+}

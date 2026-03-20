@@ -1,0 +1,161 @@
+@use "../inc/vars" as *;
+@use "../inc/mixins" as *;
+
+.project-card {
+  @include glass;
+  padding: 16px;
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
+  will-change: transform;
+
+  &:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.15);
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #151532;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+    contain: paint;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      backface-visibility: hidden;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%, rgba(255, 255, 255, 0.05) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: skewX(-25deg) translateX(-200%);
+      pointer-events: none;
+      z-index: 3;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+  }
+
+  &:hover &__img::before {
+    opacity: 1;
+    animation: cardShine 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  &:hover &__img img {
+    transform: scale(1.05);
+  }
+
+  @keyframes cardShine {
+    0% { transform: skewX(-25deg) translateX(-200%); }
+    100% { transform: skewX(-25deg) translateX(500%); }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  &__tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 4px 10px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__title {
+    font-family: var(--font-header);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  &__desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-alt);
+    margin: 0;
+  }
+
+  &__btn {
+    margin-top: auto;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+
+    &::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background-color: currentColor;
+      -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xOCAxM3Y2YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yVjhhMiAyIDAgMCAxIDItMmg2Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMTUgMyAyMSAzIDIxIDkiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEwIiB5MT0iMTQiIHgyPSIyMSIgeTI9IjMiPjwvbGluZT48L3N2Zz4=");
+      mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xOCAxM3Y2YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yVjhhMiAyIDAgMCAxIDItMmg2Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMTUgMyAyMSAzIDIxIDkiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjEwIiB5MT0iMTQiIHgyPSIyMSIgeTI9IjMiPjwvbGluZT48L3N2Zz4=");
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+  }
+}
