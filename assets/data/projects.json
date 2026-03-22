@@ -8,12 +8,12 @@
     "tags": ["WordPress", "ACF", "Polylang", "CF7", "HTML", "SCSS", "JS"]
   },
   {
-    "title": "33 ОМБр",
-    "desc": "Вебсайт на базі WordPress для бойової бригади з блогом, підпискою на донати та формою подачі заявки.",
-    "img": "./assets/img/projects/33-ombr.jpg",
-    "link": "https://33ombr.mil.gov.ua/",
-    "aria": "Детальніше про проєкт 33 ОМБр",
-    "tags": ["WordPress", "ACF", "LiqPay API", "CF7", "WPML", "HTML", "SCSS", "JS"]
+    "title": "PlayWSOP",
+    "desc": "Сайт для гри в покер від ізраїльського розробника на WordPress з кастомними типами записів.",
+    "img": "./assets/img/projects/wsop.png",
+    "link": "https://www.playwsop.com/",
+    "aria": "Детальніше про проєкт PlayWSOP",
+    "tags": ["WordPress", "ACF", "HTML", "SCSS", "JS"]
   },
   {
     "title": "Ukraїner Store",
@@ -22,6 +22,14 @@
     "link": "https://store.ukrainer.net/",
     "aria": "Детальніше про проєкт Ukraїner Store",
     "tags": ["WordPress", "ACF", "WooCommerce", "Polylang", "HTML", "SCSS", "JS"]
+  },
+  {
+    "title": "33 ОМБр",
+    "desc": "Вебсайт на базі WordPress для бойової бригади з блогом, підпискою на донати та формою подачі заявки.",
+    "img": "./assets/img/projects/33-ombr.jpg",
+    "link": "https://33ombr.mil.gov.ua/",
+    "aria": "Детальніше про проєкт 33 ОМБр",
+    "tags": ["WordPress", "ACF", "LiqPay API", "CF7", "WPML", "HTML", "SCSS", "JS"]
   },
   {
     "title": "Maman Aviation",
